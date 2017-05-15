@@ -9,6 +9,10 @@
             classpath*:/application.xml
         </param-value>
     </context-param>
+
+    <welcome-file-list>
+        <welcome-file>/admin/login.jsp</welcome-file>
+    </welcome-file-list>
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
@@ -39,7 +43,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>dispatcher</servlet-name>
-        <url-pattern>*.html</url-pattern>
+        <url-pattern>*.htm</url-pattern>
     </servlet-mapping>
 
     <servlet>

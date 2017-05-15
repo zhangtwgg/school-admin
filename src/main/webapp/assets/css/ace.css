@@ -11994,6 +11994,8 @@ td .lbl:only-child {
 }
 .login-layout {
   background-color: #1D2024;
+  background-image: url("../images/login-bg.jpg");
+  background-position:  center;
 }
 .login-layout .main-container:before {
   display: none;
