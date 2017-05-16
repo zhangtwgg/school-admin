@@ -3,34 +3,26 @@
  *
  */
 jQuery(function($){
-    var oTable1 = $('#sample-table-2').dataTable( {
-                bAutoWidth: false,
-                "aoColumns": [
-                    { "bSortable": false },
-                    null, null,null, null, null,
-                    { "bSortable": false }
-                ],
-                "aaSorting": [],
-
-                //,
-                //"sScrollY": "200px",
-                //"bPaginate": false,
-
-                //"sScrollX": "100%",
-                //"sScrollXInner": "120%",
-                //"bScrollCollapse": true,
-                //Note: if you are applying horizontal scrolling (sScrollX) on a ".table-bordered"
-                //you may want to wrap the table inside a "div.dataTables_borderWrap" element
-
-                "iDisplayLength": 3
-            } );
-
-    $(document).on('click', 'th input:checkbox' , function(){
-        var that = this;
-        $(this).closest('table').find('tr > td:first-child input:checkbox')
-            .each(function(){
-                this.checked = that.checked;
-                $(this).closest('tr').toggleClass('selected');
-            });
+    var id = "sample-table-2";
+    var oTable1 = $('#' + id).dataTable( {
+        // "bProcessing": true,
+        // "bServerSide": true,
+        // "sPaginationType": "full_numbers",
+        // "sAjaxSource": "./server_processing.PHP",
+        // "aoColumns" :[
+        //     {'sName' : ""},
+        //     {'sName' : ""},
+        //     {'sName' : ""},
+        //     {'sName' : ""},
+        //     {'sName' : ""},
+        //     {'sName' : ""},
+        //     {'sName' : ""},
+        //     {'sName' : ""},
+        //     {'sName' : ""},
+        //     {'sName' : ""},
+        //     {'sName' : ""}
+        // ]
     });
+    $("#" + id + "_wrapper > div > .col-xs-6:first").remove();
+    $("#" + id + "_filter").css("text-align","left");
 });

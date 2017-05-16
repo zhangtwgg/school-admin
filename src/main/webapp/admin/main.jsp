@@ -192,7 +192,7 @@
 						<ul class="submenu">
 
 							<li class="">
-								<a href="typography.html">
+								<a href="#" menu-jsp = "/admin/form.jsp" menu-js="/admin/js/form.js">
 									<i class="menu-icon fa fa-caret-right"></i>
 									教师管理
 								</a>
@@ -324,6 +324,7 @@
 				<div id="container" class="main-content-inner">
 
 
+
 				</div>
 			</div><!-- /.main-content -->
 
@@ -423,6 +424,27 @@
 			function load(jsp, js) {
                 viewer.loadView(container, contextPath + jsp, contextPath + js);
 			}
+            $.extend( $.fn.dataTable.defaults, {
+                bAutoWidth: false,
+                bLengthChange : false,
+                ordering:  false,
+                "iDisplayLength": 10,
+                language:{
+                    "info": "第 _START_ 条至 _END_ 条， 共 _TOTAL_ 条",
+                    "sLengthMenu" : "",
+                    "search":"姓名 _INPUT_",
+                    "infoEmpty":"共0条",
+                    "sInfoFiltered":"",
+                    "zeroRecords": "没查找到符合条件的记录",
+                    "emptyTable":"暂无数据",
+                    paginate:{
+                        "first" : "首页",
+                        "next" : "下一页",
+                        "previous" : "上一页",
+                        "last" : "最后一页"
+                    }
+                }
+            } );
         });
 	</script>
 	</body>

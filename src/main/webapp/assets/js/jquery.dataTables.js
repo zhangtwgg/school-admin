@@ -2909,7 +2909,6 @@
 	
 		for ( var i=display.length-1 ; i>=0 ; i-- ) {
 			data = settings.aoData[ display[i] ]._aFilterData[ colIdx ];
-	
 			if ( ! rpSearch.test( data ) ) {
 				display.splice( i, 1 );
 			}
