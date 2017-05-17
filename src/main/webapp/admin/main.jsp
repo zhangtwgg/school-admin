@@ -14,7 +14,7 @@
 		<link rel="stylesheet" href="../assets/css/font-awesome.css" />
 
 		<!-- page specific plugin styles -->
-
+		<link rel="stylesheet" href="../assets/css/datepicker.css" />
 		<!-- text fonts -->
 		<link rel="stylesheet" href="../assets/css/ace-fonts.css" />
 
@@ -166,7 +166,7 @@
 						<ul class="submenu">
 
 							<li class="" >
-								<a href="#" menu-jsp = "/admin/table.jsp" menu-js="/admin/js/table.js">
+								<a href="#" menu-jsp = "/admin/manager.jsp" menu-js="/admin/js/manager.js">
 									<i class="menu-icon fa fa-caret-right"></i>
 									管理员账号管理
 								</a>
@@ -192,7 +192,7 @@
 						<ul class="submenu">
 
 							<li class="">
-								<a href="#" menu-jsp = "/admin/form.jsp" menu-js="/admin/js/form.js">
+								<a href="#" menu-jsp = "/admin/teachers.jsp" menu-js="/admin/js/teachers.js">
 									<i class="menu-icon fa fa-caret-right"></i>
 									教师管理
 								</a>
@@ -218,7 +218,7 @@
 						<ul class="submenu">
 
 							<li class="">
-								<a href="typography.html">
+								<a href="#"  menu-jsp = "/admin/salary.jsp" menu-js="/admin/js/salary.js">
 									<i class="menu-icon fa fa-caret-right"></i>
 									教师工资管理
 								</a>
@@ -378,6 +378,7 @@
 		<script src="../assets/js/jquery-ui.custom.js"></script>
 		<script src="../assets/js/jquery.ui.touch-punch.js"></script>
 		<script src="../assets/js/jquery.easypiechart.js"></script>
+		<script src="../assets/js/date-time/bootstrap-datepicker.js"></script>
 		<script src="../assets/js/jquery.sparkline.js"></script>
 		<script src="../assets/js/flot/jquery.flot.js"></script>
 		<script src="../assets/js/flot/jquery.flot.pie.js"></script>
@@ -408,9 +409,9 @@
 		<script src="js/tools.js"></script>
 		
 	<script type="text/javascript">
+        var contextPath = $("#contextPath").val();
+        var container = $("#container");
 		$(function () {
-		    var contextPath = $("#contextPath").val();
-		    var container = $("#container");
 			$("#sys-menu").click(function () {
 				var jsp = $(this).attr("menu-jsp");
 				var js = $(this).attr("menu-js");
