@@ -35,14 +35,14 @@
     <div class="col-xs-12">
         <div class="row">
             <div class="col-xs-12">
-                <h3 class="header smaller lighter blue">教师工资</h3>
+                <h3 class="header smaller lighter blue">教师医保</h3>
                 <div class="table-header">
                     <form class="form-inline">
                         <div class="form-group">
-                            <span >工资列表</span>
+                            <span >医保列表</span>
                         </div>
                         <div class="form-group col-sm-offset-10">
-                            <button  class="btn btn-success" id="btn-add-salay" type="button">添加</button>
+                            <button  class="btn btn-success" id="btn-add-medical" type="button">添加</button>
                         </div>
                     </form>
                 </div>
@@ -51,17 +51,15 @@
 
                 <!-- <div class="dataTables_borderWrap"> -->
                 <div>
-                    <table id="tab-salary" class="table table-striped table-bordered table-hover">
+                    <table id="tab-medical" class="table table-striped table-bordered table-hover">
                         <thead>
                         <tr>
                             <th>序号</th>
                             <th>编号</th>
                             <th>姓名</th>
-                            <th>工资年月</th>
-                            <th >基本工资</th>
-                            <th>奖金</th>
-                            <th>津贴</th>
-                            <th>工资合计</th>
+                            <th>医保年月</th>
+                            <th >缴费金额</th>
+                            <th>缴费日期</th>
                             <th>操作</th>
                         </tr>
                         </thead>
@@ -70,12 +68,10 @@
                         <tr>
                             <td>序号</td>
                             <td>编号</td>
-                            <td>用户名</td>
-                            <td>工资年月</td>
-                            <td >基本工资</td>
-                            <td>奖金</td>
-                            <td>津贴</td>
-                            <td>工资合计</td>
+                            <td>姓名</td>
+                            <td>医保年月</td>
+                            <td >缴费金额</td>
+                            <td>缴费日期</td>
                             <td>
                                 <div class="hidden-sm hidden-xs action-buttons">
 

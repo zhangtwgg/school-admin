@@ -244,7 +244,7 @@
 						<ul class="submenu">
 
 							<li class="">
-								<a href="typography.html">
+								<a href="#" menu-jsp = "/admin/check.jsp" menu-js="/admin/js/check.js">
 									<i class="menu-icon fa fa-caret-right"></i>
 									教师考核管理
 								</a>
@@ -270,7 +270,7 @@
 						<ul class="submenu">
 
 							<li class="">
-								<a href="typography.html">
+								<a href="#" menu-jsp = "/admin/attend.jsp" menu-js="/admin/js/attend.js">
 									<i class="menu-icon fa fa-caret-right"></i>
 									教师考勤管理
 								</a>
@@ -296,7 +296,7 @@
 						<ul class="submenu">
 
 							<li class="">
-								<a href="typography.html">
+								<a href="#" menu-jsp = "/admin/medical.jsp" menu-js="/admin/js/medical.js">
 									<i class="menu-icon fa fa-caret-right"></i>
 									教师医保管理
 								</a>
