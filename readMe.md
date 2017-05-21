@@ -10,7 +10,7 @@
 > 需要安装`jdk1.8`,`mysql-5.7.17`以及`apache-maven-3.3.9`
 1. 下载
 ```shell
-git clone http://github...... 
+git clone https://github.com/alleyZ/school-admin. 
 ```
 2. 配置
 > 1. 端口

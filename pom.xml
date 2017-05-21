@@ -85,6 +85,7 @@
         </repository>
     </repositories>
     <build>
+        <finalName>school-admin</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
