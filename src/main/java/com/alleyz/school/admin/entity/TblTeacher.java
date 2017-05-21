@@ -1,33 +1,33 @@
 package com.alleyz.school.admin.entity;
 
 import javax.persistence.*;
-import java.io.Serializable;
-import java.sql.Timestamp;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.Collection;
 
 /**
- * Created by alleyz on 2017/5/18 0018.
+ * Created by alleyz on 2017/5/19 0019.
  */
 @Entity
-@Table(name = "tbl_teacher")
-public class TblTeacher implements Serializable{
+@Table(name = "tbl_teacher", schema = "alleyz", catalog = "")
+@XmlRootElement
+public class TblTeacher {
     private int id;
     private String userCode;
     private String loginCode;
     private String name;
-    private Byte sex;
+    private String sex;
     private String dep;
     private String birthday;
     private String edu;
-    private Timestamp entryTime;
+    private String entryTime;
     private String phone;
     private String address;
     private String password;
-    private Byte isAdmin;
-    private Collection<TblAttend> tblAttendsById;
-    private Collection<TblCheck> tblChecksById;
-    private Collection<TblMedcial> tblMedcialsById;
-    private TblSalary tblSalaryById;
+    private Integer isAdmin;
+    private Collection<TblAttend> attends;
+    private Collection<TblCheck> checks;
+    private Collection<TblMedcial> medcials;
+    private Collection<TblSalary> salaries;
 
     @Id
     @Column(name = "id")
@@ -71,11 +71,11 @@ public class TblTeacher implements Serializable{
 
     @Basic
     @Column(name = "sex")
-    public Byte getSex() {
+    public String getSex() {
         return sex;
     }
 
-    public void setSex(Byte sex) {
+    public void setSex(String sex) {
         this.sex = sex;
     }
 
@@ -111,11 +111,11 @@ public class TblTeacher implements Serializable{
 
     @Basic
     @Column(name = "entry_time")
-    public Timestamp getEntryTime() {
+    public String getEntryTime() {
         return entryTime;
     }
 
-    public void setEntryTime(Timestamp entryTime) {
+    public void setEntryTime(String entryTime) {
         this.entryTime = entryTime;
     }
 
@@ -151,11 +151,11 @@ public class TblTeacher implements Serializable{
 
     @Basic
     @Column(name = "is_admin")
-    public Byte getIsAdmin() {
+    public Integer getIsAdmin() {
         return isAdmin;
     }
 
-    public void setIsAdmin(Byte isAdmin) {
+    public void setIsAdmin(Integer isAdmin) {
         this.isAdmin = isAdmin;
     }
 
@@ -201,39 +201,39 @@ public class TblTeacher implements Serializable{
         return result;
     }
 
-    @OneToMany(mappedBy = "tblTeacherByUserId")
-    public Collection<TblAttend> getTblAttendsById() {
-        return tblAttendsById;
+
+    @OneToMany(mappedBy = "teacher",cascade = CascadeType.ALL)
+    public Collection<TblAttend> getAttends() {
+        return attends;
     }
 
-    public void setTblAttendsById(Collection<TblAttend> tblAttendsById) {
-        this.tblAttendsById = tblAttendsById;
+    public void setAttends(Collection<TblAttend> attends) {
+        this.attends = attends;
+    }
+    @OneToMany(mappedBy = "teacher",cascade = CascadeType.ALL)
+    public Collection<TblCheck> getChecks() {
+        return checks;
     }
 
-    @OneToMany(mappedBy = "tblTeacherByUserId")
-    public Collection<TblCheck> getTblChecksById() {
-        return tblChecksById;
+    public void setChecks(Collection<TblCheck> checks) {
+        this.checks = checks;
+    }
+    @OneToMany(mappedBy = "teacher",cascade = CascadeType.ALL)
+    public Collection<TblMedcial> getMedcials() {
+        return medcials;
     }
 
-    public void setTblChecksById(Collection<TblCheck> tblChecksById) {
-        this.tblChecksById = tblChecksById;
+    public void setMedcials(Collection<TblMedcial> medcials) {
+        this.medcials = medcials;
+    }
+    @OneToMany(mappedBy = "teacher",cascade = CascadeType.ALL)
+    public Collection<TblSalary> getSalaries() {
+        return salaries;
     }
 
-    @OneToMany(mappedBy = "tblTeacherByUserId")
-    public Collection<TblMedcial> getTblMedcialsById() {
-        return tblMedcialsById;
+    public void setSalaries(Collection<TblSalary> salaries) {
+        this.salaries = salaries;
     }
 
-    public void setTblMedcialsById(Collection<TblMedcial> tblMedcialsById) {
-        this.tblMedcialsById = tblMedcialsById;
-    }
 
-    @OneToOne(mappedBy = "tblTeacherById")
-    public TblSalary getTblSalaryById() {
-        return tblSalaryById;
-    }
-
-    public void setTblSalaryById(TblSalary tblSalaryById) {
-        this.tblSalaryById = tblSalaryById;
-    }
 }

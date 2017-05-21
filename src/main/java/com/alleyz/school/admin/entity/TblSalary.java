@@ -1,22 +1,21 @@
 package com.alleyz.school.admin.entity;
 
 import javax.persistence.*;
-import java.io.Serializable;
 
 /**
- * Created by alleyz on 2017/5/18 0018.
+ * Created by alleyz on 2017/5/19 0019.
  */
 @Entity
-@Table(name = "tbl_salary")
-public class TblSalary  implements Serializable {
+@Table(name = "tbl_salary", schema = "alleyz", catalog = "")
+public class TblSalary {
     private int id;
-    private String userId;
+    private Integer userId;
     private String accountPeriod;
     private String basePay;
     private Double bonus;
     private Double allowance;
     private Double salary;
-    private TblTeacher tblTeacherById;
+    private TblTeacher teacher;
 
     @Id
     @Column(name = "id")
@@ -30,11 +29,11 @@ public class TblSalary  implements Serializable {
 
     @Basic
     @Column(name = "user_id")
-    public String getUserId() {
+    public Integer getUserId() {
         return userId;
     }
 
-    public void setUserId(String userId) {
+    public void setUserId(Integer userId) {
         this.userId = userId;
     }
 
@@ -119,13 +118,13 @@ public class TblSalary  implements Serializable {
         return result;
     }
 
-    @OneToOne
-    @JoinColumn(name = "id", referencedColumnName = "id", nullable = false)
-    public TblTeacher getTblTeacherById() {
-        return tblTeacherById;
+    @ManyToOne
+    @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false, insertable = false, updatable = false)
+    public TblTeacher getTeacher() {
+        return teacher;
     }
 
-    public void setTblTeacherById(TblTeacher tblTeacherById) {
-        this.tblTeacherById = tblTeacherById;
+    public void setTeacher(TblTeacher teacher) {
+        this.teacher = teacher;
     }
 }

@@ -1,20 +1,19 @@
 package com.alleyz.school.admin.entity;
 
 import javax.persistence.*;
-import java.io.Serializable;
-import java.sql.Timestamp;
 
 /**
- * Created by alleyz on 2017/5/18 0018.
+ * Created by alleyz on 2017/5/19 0019.
  */
 @Entity
-@Table(name = "tbl_check")
-public class TblCheck implements Serializable {
+@Table(name = "tbl_check", schema = "alleyz", catalog = "")
+public class TblCheck {
     private int id;
+    private Integer userId;
     private String item;
     private String result;
-    private Timestamp checkTime;
-    private TblTeacher tblTeacherByUserId;
+    private String checkTime;
+    private TblTeacher teacher;
 
     @Id
     @Column(name = "id")
@@ -24,6 +23,16 @@ public class TblCheck implements Serializable {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    @Basic
+    @Column(name = "user_id")
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
     @Basic
@@ -48,11 +57,11 @@ public class TblCheck implements Serializable {
 
     @Basic
     @Column(name = "check_time")
-    public Timestamp getCheckTime() {
+    public String getCheckTime() {
         return checkTime;
     }
 
-    public void setCheckTime(Timestamp checkTime) {
+    public void setCheckTime(String checkTime) {
         this.checkTime = checkTime;
     }
 
@@ -64,6 +73,7 @@ public class TblCheck implements Serializable {
         TblCheck tblCheck = (TblCheck) o;
 
         if (id != tblCheck.id) return false;
+        if (userId != null ? !userId.equals(tblCheck.userId) : tblCheck.userId != null) return false;
         if (item != null ? !item.equals(tblCheck.item) : tblCheck.item != null) return false;
         if (result != null ? !result.equals(tblCheck.result) : tblCheck.result != null) return false;
         if (checkTime != null ? !checkTime.equals(tblCheck.checkTime) : tblCheck.checkTime != null) return false;
@@ -74,19 +84,19 @@ public class TblCheck implements Serializable {
     @Override
     public int hashCode() {
         int result1 = id;
+        result1 = 31 * result1 + (userId != null ? userId.hashCode() : 0);
         result1 = 31 * result1 + (item != null ? item.hashCode() : 0);
         result1 = 31 * result1 + (result != null ? result.hashCode() : 0);
         result1 = 31 * result1 + (checkTime != null ? checkTime.hashCode() : 0);
         return result1;
     }
-
     @ManyToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
-    public TblTeacher getTblTeacherByUserId() {
-        return tblTeacherByUserId;
+    @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false, insertable = false, updatable = false)
+    public TblTeacher getTeacher() {
+        return teacher;
     }
 
-    public void setTblTeacherByUserId(TblTeacher tblTeacherByUserId) {
-        this.tblTeacherByUserId = tblTeacherByUserId;
+    public void setTeacher(TblTeacher teacher) {
+        this.teacher = teacher;
     }
 }

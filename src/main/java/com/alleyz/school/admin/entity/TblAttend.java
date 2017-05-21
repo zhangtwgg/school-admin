@@ -1,23 +1,23 @@
 package com.alleyz.school.admin.entity;
 
 import javax.persistence.*;
-import java.io.Serializable;
 
 /**
- * Created by alleyz on 2017/5/18 0018.
+ * Created by alleyz on 2017/5/19 0019.
  */
 @Entity
-@Table(name = "tbl_attend")
-public class TblAttend  implements Serializable {
+@Table(name = "tbl_attend", schema = "alleyz", catalog = "")
+public class TblAttend {
     private int id;
     private String attendMonth;
-    private Byte attendNormal;
+    private Integer attendNormal;
     private Double lateCount;
     private Double earlyCount;
     private Double sickCount;
     private Double leaveCount;
     private Double absentCount;
-    private TblTeacher tblTeacherByUserId;
+    private int userId;
+    private TblTeacher teacher;
 
     @Id
     @Column(name = "id")
@@ -41,11 +41,11 @@ public class TblAttend  implements Serializable {
 
     @Basic
     @Column(name = "attend_normal")
-    public Byte getAttendNormal() {
+    public Integer getAttendNormal() {
         return attendNormal;
     }
 
-    public void setAttendNormal(Byte attendNormal) {
+    public void setAttendNormal(Integer attendNormal) {
         this.attendNormal = attendNormal;
     }
 
@@ -99,6 +99,16 @@ public class TblAttend  implements Serializable {
         this.absentCount = absentCount;
     }
 
+    @Basic
+    @Column(name = "user_id")
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -107,6 +117,7 @@ public class TblAttend  implements Serializable {
         TblAttend tblAttend = (TblAttend) o;
 
         if (id != tblAttend.id) return false;
+        if (userId != tblAttend.userId) return false;
         if (attendMonth != null ? !attendMonth.equals(tblAttend.attendMonth) : tblAttend.attendMonth != null)
             return false;
         if (attendNormal != null ? !attendNormal.equals(tblAttend.attendNormal) : tblAttend.attendNormal != null)
@@ -131,16 +142,17 @@ public class TblAttend  implements Serializable {
         result = 31 * result + (sickCount != null ? sickCount.hashCode() : 0);
         result = 31 * result + (leaveCount != null ? leaveCount.hashCode() : 0);
         result = 31 * result + (absentCount != null ? absentCount.hashCode() : 0);
+        result = 31 * result + userId;
         return result;
     }
-
     @ManyToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false)
-    public TblTeacher getTblTeacherByUserId() {
-        return tblTeacherByUserId;
+    @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false, insertable = false, updatable = false)
+    public TblTeacher getTeacher() {
+        return teacher;
     }
 
-    public void setTblTeacherByUserId(TblTeacher tblTeacherByUserId) {
-        this.tblTeacherByUserId = tblTeacherByUserId;
+    public void setTeacher(TblTeacher teacher) {
+        this.teacher = teacher;
     }
+
 }
